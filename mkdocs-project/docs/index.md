@@ -4,6 +4,12 @@ This documentation provides resources to learn how to use the VirtualBox softwar
 which allows virtual machines (VMs) for "guest" operating systems to be run on the "host" operating system.
 This is particularly useful when a full Linux operating system needs to be run on a Windows desktop computer,
 for example for software development and testing.
+
+This documentation explains how to install VirtualBox on a host Windows 10 computer,
+create guest Linux Debian Jessie VM, export the VM, and import the VM.
+A similar process can be used with other combinations of operating systems.
+Once a core VM is available, specific software can be installed and configured for a specific purpose.
+
 If a full VM is not needed, consider using [Cygwin](http://learn.openwaterfoundation.org/owf-learn-cygwin/),
 Git Bash, MinGW, or Linux Subsystem on Windows 10
 ([see information about Linux shells](http://learn.openwaterfoundation.org/owf-learn-linux-shell/install/install/)).
