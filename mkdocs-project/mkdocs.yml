@@ -12,10 +12,10 @@ nav:
     - 'Extension Pack': install-host/win/install-win-host-extension-pack.md
 - 'Create Guests on Windows 10':
     - 'Linux Debian Jessie VM':  create-guest/linux-debian-jessie/create-guest-debian-jessie.md
-- 'Create Images on Windows 10':
-    - 'Linux Debian Jessie VM':  create-image/linux-debian-jessie/create-image-debian-jessie.md
-- 'Install Images on Windows 10':
-    - 'Linux Debian Jessie VM':  install-image/linux-debian-jessie/install-image-debian-jessie.md
+- 'Export Appliance on Windows 10':
+    - 'Linux Debian Jessie VM':  export-appliance/linux-debian-jessie/export-appliance-debian-jessie.md
+- 'Import Appliance on Windows 10':
+    - 'Linux Debian Jessie VM':  import-appliance/linux-debian-jessie/import-appliance-debian-jessie.md
 - Troubleshooting: troubleshooting/troubleshooting.md
 - Resources: resources/resources.md
 # ------- configuration properties ---------------
