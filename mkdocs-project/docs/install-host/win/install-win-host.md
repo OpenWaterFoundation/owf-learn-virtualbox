@@ -105,8 +105,11 @@ The ***VirtualBox Manager*** will then be shown similar to the following:
 </p>**
 
 **<p style="text-align: center;">
-VirtualBox Install Extension Pack (<a href="../images/win-host-install14.png">see full-size image</a>)
+VirtualBox Manager Initial View (<a href="../images/win-host-install14.png">see full-size image</a>)
 </p>**
+
+If the extension pack installation was not prompted for (as shown above), then install the extension pack before continuing.
+See the [Windows 10 Host / Install Extension Pack](install-win-host-extension-pack.md) instructions.
 
 Other sections of this documentation explain how to use the ***VirtualBox Manager*** to define and import virtual machines.
 

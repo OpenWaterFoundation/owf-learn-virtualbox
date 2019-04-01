@@ -10,12 +10,16 @@ nav:
   - Windows 10 Host:
     - 'Main Install': install-host/win/install-win-host.md
     - 'Extension Pack': install-host/win/install-win-host-extension-pack.md
+    - 'File Locations': install-host/win/file-locations.md
 - 'Create Guests on Windows 10':
     - 'Linux Debian Jessie VM':  create-guest/linux-debian-jessie/create-guest-debian-jessie.md
 - 'Export Appliance on Windows 10':
     - 'Linux Debian Jessie VM':  export-appliance/linux-debian-jessie/export-appliance-debian-jessie.md
 - 'Import Appliance on Windows 10':
     - 'Linux Debian Jessie VM':  import-appliance/linux-debian-jessie/import-appliance-debian-jessie.md
+- VirtualBox Tools:  vb-tools/vb-tools.md
+- Best Practices: best-practices/best-practices.md
+- Procedures: procedures/procedures.md
 - Troubleshooting: troubleshooting/troubleshooting.md
 - Resources: resources/resources.md
 # ------- configuration properties ---------------
