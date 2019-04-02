@@ -28,6 +28,8 @@ This ensures that the files related to the VM are organized and isolated from ot
 Use the ***VirtualBox Manager*** to move VMs between groups.
 Trying to move the files manually tends to cause confusion with the VirtualBox software.
 
+**Need to understand the folders better because a VM can belong to more than one group.**
+
 ## Shutting Down Machines ##
 
 If possible, shut down virtual machines cleanly by using the ***Shutdown*** choice for the login session.

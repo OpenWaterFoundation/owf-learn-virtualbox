@@ -33,6 +33,13 @@ This documentation is not intended to be a full reference for VirtualBox but foc
 will help understand important technical concepts and be successful with VirtualBox.
 See the [Resources](resources/resources.md) section for general information about VirtualBox.
 
+The following conventions are used in this documentation:
+
+* A command prompt of `$` will be shown for a normal user.
+* `$ sudo` indicates that a normal user is running a command as superuser (administrative privileges).
+* A command prompt of `#` will be shown for the root user.
+In most cases this is avoided by running commands with `sudo`.
+
 ## License ##
 
 The OWF Learn MkDocs website content and examples are licensed under the

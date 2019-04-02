@@ -1,22 +1,6 @@
-# VirtualBox / Tools #
+# VirtualBox / Clone VM #
 
-This page provides information about using ***VirtualBox Manager*** tools.
-VirtualBox tools are somewhat confusing to explain because there are several sets of tools shown
-depending on whether one of the following is accessed:
-
-* ***Tools*** button at the top of the ***VirtualBox Manager***.
-* ***Machine / Tools*** menu (requires that a machine is selected).
-* Tools shown in upper right when a machine is selected.
-
-This page provides information about tools based on functionality:
-
-* [Clone a VM](#clone-a-vm)
-* [Example - Cloning an Appliance VM](#example-cloning-an-appliance-vm)
-
-------------------------
-
-## Clone a VM ##
-
+The Clone tool makes a copy of a VM.
 Cloning a VM may be appropriate for the following reasons:
 
 * faster than taking the time to create and initialize a new VM
