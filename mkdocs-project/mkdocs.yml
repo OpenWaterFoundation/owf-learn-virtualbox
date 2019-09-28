@@ -17,6 +17,8 @@ nav:
     - 'Linux Debian Jessie VM':  export-appliance/linux-debian-jessie/export-appliance-debian-jessie.md
 - 'Import Appliance on Windows 10':
     - 'Linux Debian Jessie VM':  import-appliance/linux-debian-jessie/import-appliance-debian-jessie.md
+- Virtual Machine Configuration:
+    - 'Linux Debian VM':  vm-config/linux-debian/config-debian.md
 - Virtual Machine Settings:
     - 'Overview': vm-settings/vm-settings.md
     - 'Shared Folders':  vm-settings/shared-folders/shared-folders.md

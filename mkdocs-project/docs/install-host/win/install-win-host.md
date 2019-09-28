@@ -5,6 +5,8 @@ VirtualBox software needs to be installed on the host (original) computer in ord
 run virtual machines that use a different operating system.
 
 The following documentation is for VirtualBox 6.0.4, but other versions will be similar.
+It is generally wise to install the most recent version.
+The installer will update the software if already installed.
 
 Download the VirtualBox installer from the [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads) page.
 Choose the "Windows hosts" installer, which will result in a local file named `VirtualBox-6.0.4-128413-Win.exe` or similar.
@@ -108,8 +110,10 @@ The ***VirtualBox Manager*** will then be shown similar to the following:
 VirtualBox Manager Initial View (<a href="../images/win-host-install14.png">see full-size image</a>)
 </p>**
 
-If the extension pack installation was not prompted for (as shown above), then install the extension pack before continuing.
-See the [Windows 10 Host / Install Extension Pack](install-win-host-extension-pack.md) instructions.
+If the extension pack installation was not prompted for (as shown above), then the extension pack can be installed before continuing.
+**Note that the extension pack is free for evaluation and personal use but is not free for commercial use.**
+See the [Extension pack License](https://www.virtualbox.org/wiki/VirtualBox_PUEL).
+To install, see the [Windows 10 Host / Install Extension Pack](install-win-host-extension-pack.md) instructions.
 
 Other sections of this documentation explain how to use the ***VirtualBox Manager*** to define and import virtual machines.
 

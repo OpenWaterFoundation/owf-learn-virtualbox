@@ -5,10 +5,16 @@ which allows virtual machines (VMs) for "guest" operating systems to be run on t
 This is particularly useful when a full Linux operating system needs to be run on a Windows desktop computer,
 for example for software development and testing.
 
-This documentation explains how to install VirtualBox on a host Windows 10 computer,
-create guest Linux Debian Jessie VM, export the VM, and import the VM.
+This documentation explains how to:
+
+* install VirtualBox on a host Windows 10 computer
+* create guest Linux Debian Jessie "bare VM" with minimal software installed
+* export the VM to a "bare appliance"
+* import the "bare appliance" to create a new VM
+* configure the VM for an environment and save a snapshot
+
 A similar process can be used with other combinations of operating systems.
-Once a core VM is available, specific software can be installed and configured for a specific purpose.
+Once a VM is available, specific software can be installed and configured for a specific purpose.
 
 If a full VM is not needed, consider using [Cygwin](http://learn.openwaterfoundation.org/owf-learn-cygwin/),
 Git Bash, MinGW, or Linux Subsystem on Windows 10

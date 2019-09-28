@@ -1,7 +1,7 @@
 # VirtualBox / Windows 10 Host / Create Linux Debian Jessie Guest VM
 
 This documentation describes how to create a new Linux Debian Jessie guest operating system VM
-installed on a Windows 10 host operating system.
+installed on a Windows 10 host operating system, using Virtual Box 6.0.4.
 The Debian Linux distribution is known for its stability.
 Therefore it may not have the latest software tools or versions,
 but the software that is available is very stable, which is important for critical operational systems.
@@ -25,12 +25,24 @@ but the software that is available is very stable, which is important for critic
 ## Planning ##
 
 Before creating a new virtual machine guest, it is worth doing some planning.
-For example, rather than going through the trouble of creating a new guest VM,
-it may be worthwhile to determine whether an existing appliance image exists.
-Importing an appliance (see for example
-[Import Linux Debian Jessie VM](../../import-appliance/linux-debian-jessie/import-appliance-debian-jessie.md))
-can save time and ensure consistency.
-An appliance can also be imported and then additional configuration can occur.
+For example, rather than going through the trouble of creating a new guest VM and installing Linux from a distribution (distro),
+consider the options (most effort listed first):
+
+* create a new VM from scratch by installing Linux distribution
+	+ pros:  full control over VM, may be needed to install a specific version
+	+ cons:  takes awhile and may need to recreate if mistakes are made
+* import an appliance VM
+	+ pros:  fast, promotes standardization
+	+ cons:  suitable appliance VM must be available
+	+ see: [Import Linux Debian Jessie VM Appliance](../../import-appliance/linux-debian-jessie/import-appliance-debian-jessie.md)
+* copy an existing VM
+	+ pros:  fast
+	+ cons:  existing VM may be "polluted" with software and other files
+
+Within an organization or development team, dedicating resources to creating an appliance
+can pay off in the long run because multiple people can create a new VM using the appliance and
+save time for each VM that is created.
+A standard appliance also promotes consistency.
 
 If a new VM does need to be created, then following the instructions on this page.
 
@@ -52,18 +64,20 @@ This is the default top-level folder under which more specific folders will be c
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Machine for Jessie Debian - Default Machine Folder (<a href="../images/new-debian-jessie1-name.png">see full-size image</a>)
+Create Virtual Machine for Debian Jessie - Default Machine Folder (<a href="../images/new-debian-jessie1-name.png">see full-size image</a>)
 </p>**
 
 The example below shows an alternate location on the `D:` drive, which has more space available.
-Again, this is the default top-level folder under which more specific folders will be created in a later step when the hard disk location is specified.
+Folders that match `C:` drive user files are used for consistency.
+The folder, once defined, becomes the default top-level folder under which more specific folders
+will be created in a later step when the hard disk location is specified.
 
 **<p style="text-align: center;">
 ![new-debian-jessie1b-name](images/new-debian-jessie1b-name.png)
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Machine for Jessie Debian - Alternate Machine Folder (<a href="../images/new-debian-jessie1b-name.png">see full-size image</a>)
+Create Virtual Machine for Debian Jessie - Alternate Machine Folder (<a href="../images/new-debian-jessie1b-name.png">see full-size image</a>)
 </p>**
 
 The example below shows an appliance VM with bare operating system that can be further configured:
@@ -73,11 +87,12 @@ The example below shows an appliance VM with bare operating system that can be f
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Machine for Jessie Debian - Appliance Example (<a href="../images/new-debian-jessie1b2-name.png">see full-size image</a>)
+Create Virtual Machine for Debian Jessie - Appliance Example (<a href="../images/new-debian-jessie1b2-name.png">see full-size image</a>)
 </p>**
 
 The specific information for a Linux Debian Jessie installation includes, the following,
-with example values for illustration:
+with example values for illustration.
+The actual name used should match the needs within an organization.
 
 * ***Name*** - virtual machine name that will be listed in ***VirtualBox Manager***
 	+ Does not need to match the hostname of the machine once it is configured.
@@ -97,9 +112,14 @@ with example values for illustration:
 	The machine name parts above should be unique between all users/developers on the system.
 	+ Consider using a name that is consistent with the purpose of the machine, such as
 	`dev`, `test`, `build`, `support`, etc.
-	+ if creating an appliance to be imported later, a general name like
-	`vb-j64-20d-bare` might be used, to indicate VirtualBox, Debian Jessie 64,
-	20 GB dynamic drive, bare operating system
+	+ If creating an appliance to be imported later, a general name like
+	`vb-j64-20d-bare` might be used to indicate VirtualBox, Debian Jessie 64,
+	20 GB dynamic drive, bare operating system.  Or, be more explicit for appliance VM names
+	and include the organization name, such as
+	`vb-myorg-debian-jessie-64-20d-bare`, which can then be imported to create a specific VM for a user,
+	such as `vb-user-j64-20d-xxx` (where `xxx` is a product or environment).
+	+ The VM names that are used should generally also be used for the virtual hard drive,
+	image `OVA` file, and hostname, to avoid confusion.
 * ***Machine Folder*** - folder on Windows 10 where the virtual machine files will be saved
 	+ By default, the location will be similar to `C:\Users\user\Virtual Box VMs`.
 	The default is OK if the default `C:\` hard drive is sufficiently large.
@@ -132,7 +152,7 @@ which is more than the default of 1024 MB, on a host machine that has 16 GB of m
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Machine for Jessie Debian - Memory Size (<a href="../images/new-debian-jessie2.png">see full-size image</a>)
+Create Virtual Machine for Debian Jessie - Memory Size (<a href="../images/new-debian-jessie2.png">see full-size image</a>)
 </p>**
 
 Press ***Next*** to continue with setup.
@@ -148,9 +168,13 @@ However, the size will decrease the disk space available to the host operating s
 * A dynamically allocated file will only grow in size when the guest operating system
 stores data on the virtual hard disk.
 If the upper limit can be reasonably estimated, then a dynamically allocated file is a good option.
-* The memory setting should take into account the total amount of hard disk on the machine and
+For example, use smaller number (e.g., 20 GB) for a development machine and a larger number
+(e.g., 80 GB) for database server with multiple large databases.
+* The disk space setting and number of VMs should take into account the total amount of hard disk on the machine and
 the number of VMs that may be configured on the machine in addition to the host operating system.
 Use the Windows ***System Information*** or other tool to check how much disk space is available.
+VMs that are no longer needed can be deleted to free up disk space.
+For example, if software files are stored in repositories, they can be restored as needed on new VMs.
 
 The following example uses a dynamically allocated hard drive with maximum of 20 GB,
 which is more than the default of 8 GB, on a Windows host machine that has a 1TB second (`D:`) hard drive.
@@ -162,7 +186,7 @@ First, indicate that a virtual hard disk should be created:
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Machine for Jessie Debian - Create Hard Drive (<a href="../images/new-debian-jessie3-storage.png">see full-size image</a>)
+Create Virtual Machine for Debian Jessie - Create Hard Drive (<a href="../images/new-debian-jessie3-storage.png">see full-size image</a>)
 </p>**
 
 Press ***Create*** to continue with setup.
@@ -177,12 +201,12 @@ such as Amazon Web Services or Google Cloud Platform VM, then one of the other t
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Machine for Jessie Debian - Hard Drive Type (<a href="../images/new-debian-jessie4-storage.png">see full-size image</a>)
+Create Virtual Machine for Debian Jessie - Hard Drive Type (<a href="../images/new-debian-jessie4-storage.png">see full-size image</a>)
 </p>**
 
 Press ***Next*** to continue with setup.
 
-Next, indicate the how the storage will be allocated.
+Next, indicate how the storage will be allocated.
 The default setting of ***Dynamically allocated*** is generally a good option because it limits the
 amount of disk space on the host operating system to files that are actually saved.
 The maximum size of the dynamically sized disk can be specified in the next step.
@@ -192,7 +216,7 @@ The maximum size of the dynamically sized disk can be specified in the next step
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Machine for Jessie Debian - Storage Allocation (<a href="../images/new-debian-jessie5-storage.png">see full-size image</a>)
+Create Virtual Machine for Debian Jessie - Storage Allocation (<a href="../images/new-debian-jessie5-storage.png">see full-size image</a>)
 </p>**
 
 Press ***Next*** to continue with setup.
@@ -226,7 +250,7 @@ C:/  (or another drive where space is available)
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Machine for Jessie Debian - File Location and Size (<a href="../images/new-debian-jessie6-storage.png">see full-size image</a>)
+Create Virtual Machine for Debian Jessie - File Location and Size (<a href="../images/new-debian-jessie6-storage.png">see full-size image</a>)
 </p>**
 
 The following example is for an appliance, where the Group and VM name correspond to folders.
@@ -240,8 +264,13 @@ Instead, if necessary use an existing group and move the VM to another group aft
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Machine for Jessie Debian - File Location and Size for Appliance (<a href="../images/new-debian-jessie6b-storage.png">see full-size image</a>)
+Create Virtual Machine for Debian Jessie - File Location and Size for Appliance (<a href="../images/new-debian-jessie6b-storage.png">see full-size image</a>)
 </p>**
+
+**Based on experience, it appears that it is best to let VirtualBox deal with folders itself as part of group assignment.
+An exception is when a disk should be saved in a location that for a VM that is shared among users.
+Use the VirtualBox Manager to create groups, assign VMs to groups, and mv VMs between groups.
+If the VMs and associated hard disck are named consistently and uniquely, there should be no collisions.**
 
 Press ***Create*** to create the virtual hard disk.
 
@@ -252,7 +281,7 @@ The virtual machine will then be listed in the ***VirtualBox Manager*** similar 
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Machine for Jessie Debian - Complete (<a href="../images/new-debian-jessie7-manager.png">see full-size image</a>)
+Create Virtual Machine for Debian Jessie - Complete (<a href="../images/new-debian-jessie7-manager.png">see full-size image</a>)
 </p>**
 
 The following shows an appliance VM where the VM folder matches the group and VM name:
@@ -262,7 +291,7 @@ The following shows an appliance VM where the VM folder matches the group and VM
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Appliance Machine for Jessie Debian - Complete (<a href="../images/new-debian-jessie7b-manager.png">see full-size image</a>)
+Create Virtual Appliance Machine for Debian Jessie - Complete (<a href="../images/new-debian-jessie7b-manager.png">see full-size image</a>)
 </p>**
 
 Viewing the ***Storage*** properties shows the following.  Click on ***Controller: SATA/***`vb-sam-j64-dev04-nscore.vdi`
@@ -274,7 +303,7 @@ Note that the actual size is initially only 2 MB.
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Machine for Jessie Debian - Storage Information (<a href="../images/new-debian-jessie8-storage.png">see full-size image</a>)
+Create Virtual Machine for Debian Jessie - Storage Information (<a href="../images/new-debian-jessie8-storage.png">see full-size image</a>)
 </p>**
 
 The following example shows hard disk information for an appliance where the file location includes
@@ -285,31 +314,34 @@ group and machine name folders.
 </p>**
 
 **<p style="text-align: center;">
-Create Appliance Virtual Machine for Jessie Debian - Storage Information (<a href="../images/new-debian-jessie8b-storage.png">see full-size image</a>)
+Create Appliance Virtual Machine for Debian Jessie - Storage Information (<a href="../images/new-debian-jessie8b-storage.png">see full-size image</a>)
 </p>**
 
 Next, configure the VM before installing the guest operating system.
 
 ## General Configuration ##
 
-It is helpful to specify ***VirtualBox Manager*** ***General*** configuration information to facilitate interacting with the VM.
+It is helpful to specify ***VirtualBox Manager / General*** configuration information to facilitate interacting with the VM.
 In the following, specify:
 
-* ***Shared Clipboard:  Enabled***
-* ***Drag'n'Drop:  Enabled***
+* ***Shared Clipboard:  Bidirectional***
+* ***Drag'n'Drop:  Bidirectional***
 
 **<p style="text-align: center;">
 ![new-debian-jessie8c-general](images/new-debian-jessie8a-general.png)
 </p>**
 
 **<p style="text-align: center;">
-Create Virtual Machine for Jessie Debian - General Configuration (<a href="../images/new-debian-jessie8a-general.png">see full-size image</a>)
+Create Virtual Machine for Debian Jessie - General Configuration (<a href="../images/new-debian-jessie8a-general.png">see full-size image</a>)
 </p>**
 
 ## Network Configuration ##
 
-Use the following ***VirtualBox Manager*** ***Network*** settings
-To allow the virtual machine to communicate with other machines on the local network.
+Use the following ***VirtualBox Manager / Network*** settings, and otherwise use defaults.
+
+* ***Attached to:***  use ***Bridged Adapter*** to allow the virtual machine to communicate with other machines on the local network.
+
+* ***Name:*** - the default shown should be OK
 
 **<p style="text-align: center;">
 ![new-debian-jessie8b-network](images/new-debian-jessie8b-network.png)
@@ -321,21 +353,22 @@ Virtual Machine - Network Configuration (<a href="../images/new-debian-jessie8b-
 
 ## Display Configuration ##
 
-Use the ***VirtualBox Manager*** ***Display*** properties to configure display settings.
+Use the ***VirtualBox Manager / Display*** properties to configure display settings.
 The display configuration is important because if not specified correctly, the guest additions installed later
 that provide integration between guest and host operating system may not work correctly.
 
 * ***Graphics Controller*** - Based on experience with Debian Jessie and Virtual Box 6,
 it is recommended that the ***Graphics Controller*** is specified as `VBoxVGA`, as shown below.
-This may not be the default (e.g., `VMSVGA` may be the default when it is not a good choice).
+This may not be the default (e.g., `VMSVGA` may be the default but is not a good choice).
 
 * ***Video Memory*** - can be set to a high level such as 128MB to increase performance.
 
 * ***Monitor Count*** can be set to the number of monitors, but this can be changed after installing and confirming that
 guest additions work.  When guest additions are configured the VM window can be stretched across monitors
 even without setting the count because Windows 10 will control the window within the host operating system.
+Therefore, use the default value.
 
-* ***Enable 3D Acceleration*** should not be specified.
+* ***Enable 3D Acceleration*** should **not be selected** because experience has shown that acceleration can cause display issues.
 
 **<p style="text-align: center;">
 ![new-debian-jessie8c-display](images/new-debian-jessie8c-display.png)
@@ -348,7 +381,8 @@ Virtual Machine - Display Configuration (<a href="../images/new-debian-jessie8c-
 ## Install Guest Operating System ##
 
 **Make sure to configure the network and display before installing the operating system.
-This will ensure that the network can be accessed to download software and the display supports guest additions.**
+This will ensure that the network can be accessed to download software,
+for example with `apt-get` for Linux, and the display supports guest additions.**
 
 Previous steps have created a virtual machine.  However, the guest operating system has not yet been installed on that VM.
 This is accomplished by mounting an ISO image of the guest operating system as the guest operating system CD.
@@ -368,7 +402,7 @@ Then click on the CD icon to the right of ***Optical Drive*** choice by clicking
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian from ISO - Mount CD (<a href="../images/new-debian-jessie9-distro.png">see full-size image</a>)
+Install Debian Jessie from ISO - Mount CD (<a href="../images/new-debian-jessie9-distro.png">see full-size image</a>)
 </p>**
 
 Select the `debian-8.11.0-amd64-netinst.iso` file that was previously downloaded and press ***Open*** in the file selector,
@@ -379,7 +413,7 @@ which will result in the ISO file being listed next to the ***Controller:  IDE/ 
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian from ISO - CD Mounted (<a href="../images/new-debian-jessie10-cdrom.png">see full-size image</a>)
+Install Debian Jessie from ISO - CD Mounted (<a href="../images/new-debian-jessie10-cdrom.png">see full-size image</a>)
 </p>**
 
 Press ***OK*** to close the ***Storage*** window.
@@ -389,12 +423,14 @@ A screen similar to the following will be shown.
 Warnings about "capture keyboard" may be shown.  These warnings can be acknowledge by clicking on the ***X*** and
 will be resolved as the installation process is completed.
 
+It is recommended that the ***Install*** option be used, which provides simple text-based selections.
+
 **<p style="text-align: center;">
 ![new-debian-jessie11-debian-install](images/new-debian-jessie11-debian-install.png)
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian (<a href="../images/new-debian-jessie11-debian-install.png">see full-size image</a>)
+Install Debian Jessie (<a href="../images/new-debian-jessie11-debian-install.png">see full-size image</a>)
 </p>**
 
 Use the ***Enter*** key to start installing the Debian Jessie operating system on the virtual machine.
@@ -406,7 +442,7 @@ The following may be shown and will be addressed through configuration later.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Capture Warning (<a href="../images/new-debian-jessie12-debian-install2.png">see full-size image</a>)
+Install Debian Jessie - Capture Warning (<a href="../images/new-debian-jessie12-debian-install2.png">see full-size image</a>)
 </p>**
 
 Select ***Capture*** and optionally ***Do not show this message again*** to continue.
@@ -418,7 +454,7 @@ Select the language as shown in the following.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Language (<a href="../images/new-debian-jessie13-language.png">see full-size image</a>)
+Install Debian Jessie - Language (<a href="../images/new-debian-jessie13-language.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -430,7 +466,7 @@ Select the location as shown in the following.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Location (<a href="../images/new-debian-jessie14-location.png">see full-size image</a>)
+Install Debian Jessie - Location (<a href="../images/new-debian-jessie14-location.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -442,7 +478,7 @@ Select the keyboard as shown in the following.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Keyboard (<a href="../images/new-debian-jessie15-keyboard.png">see full-size image</a>)
+Install Debian Jessie - Keyboard (<a href="../images/new-debian-jessie15-keyboard.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -455,20 +491,20 @@ throughout the installation process:
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Progress (<a href="../images/new-debian-jessie16-progress.png">see full-size image</a>)
+Install Debian Jessie - Progress (<a href="../images/new-debian-jessie16-progress.png">see full-size image</a>)
 </p>**
 
 Specify the hostname as follows, which will be the network name.
 In this case the same name is being used for the virtual machine (displayed in ***VirtualBox Manager***)
 and the hostname (shown in terminal prompt and as network identifier).
-The hostname can be changed later using Linux commands.
+The hostname can be changed later by editing Linux configuration files.
 
 **<p style="text-align: center;">
 ![new-debian-jessie17-hostname](images/new-debian-jessie17-hostname.png)
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Hostname (<a href="../images/new-debian-jessie17-hostname.png">see full-size image</a>)
+Install Debian Jessie - Hostname (<a href="../images/new-debian-jessie17-hostname.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -482,19 +518,21 @@ Otherwise, make something up that does not conflict with a real-world domain.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Domain (<a href="../images/new-debian-jessie18-domain.png">see full-size image</a>)
+Install Debian Jessie - Domain (<a href="../images/new-debian-jessie18-domain.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
 
-Specify the root password.  Make sure to record somewhere because if lost the VM may need to be recreated to gain root permissions.
+Specify the root password.
+Make sure to record somewhere because if lost the VM may need to be recreated to gain root permissions.
+If creating an appliance, pick a password that can be shared with others.
 
 **<p style="text-align: center;">
 ![new-debian-jessie19-root](images/new-debian-jessie19-root.png)
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Root Password (<a href="../images/new-debian-jessie19-root.png">see full-size image</a>)
+Install Debian Jessie - Root Password (<a href="../images/new-debian-jessie19-root.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.  A second entry screen will ask for confirmation of the password.
@@ -512,7 +550,7 @@ Specify the time zone for the computer as shown below.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Time Zone (<a href="../images/new-debian-jessie20-timezone.png">see full-size image</a>)
+Install Debian Jessie - Time Zone (<a href="../images/new-debian-jessie20-timezone.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -525,7 +563,7 @@ The default is usually accpetable.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Disk Partitioning (<a href="../images/new-debian-jessie21-disk-partitioning.png">see full-size image</a>)
+Install Debian Jessie - Disk Partitioning (<a href="../images/new-debian-jessie21-disk-partitioning.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -538,7 +576,7 @@ The default is usually acceptable.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Disk Partition Selection (<a href="../images/new-debian-jessie22-disk-partitioning2.png">see full-size image</a>)
+Install Debian Jessie - Disk Partition Selection (<a href="../images/new-debian-jessie22-disk-partitioning2.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -551,7 +589,7 @@ The default is usually acceptable.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Disk Partition Scheme (<a href="../images/new-debian-jessie23-disk-partitioning3.png">see full-size image</a>)
+Install Debian Jessie - Disk Partition Scheme (<a href="../images/new-debian-jessie23-disk-partitioning3.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -563,7 +601,7 @@ The following is shown to confirm the configuration.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Disk Partition Confirmation (<a href="../images/new-debian-jessie24-disk-partitioning4.png">see full-size image</a>)
+Install Debian Jessie - Disk Partition Confirmation (<a href="../images/new-debian-jessie24-disk-partitioning4.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -576,7 +614,7 @@ Another confirmation is then shown.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Disk Partition Confirmation 2 (<a href="../images/new-debian-jessie25-disk-partitioning5.png">see full-size image</a>)
+Install Debian Jessie - Disk Partition Confirmation 2 (<a href="../images/new-debian-jessie25-disk-partitioning5.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.  The operating system will then be extracted onto the file system, with progress shown as below.
@@ -586,7 +624,7 @@ Press ***Enter*** to continue.  The operating system will then be extracted onto
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Install Operating System (<a href="../images/new-debian-jessie26-install-os.png">see full-size image</a>)
+Install Debian Jessie - Install Operating System (<a href="../images/new-debian-jessie26-install-os.png">see full-size image</a>)
 </p>**
 
 Additional software will be installed from the internet.
@@ -597,7 +635,7 @@ Select the Debian archive country location as shown below.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Install Operating System Mirror Country (<a href="../images/new-debian-jessie27-install-os2.png">see full-size image</a>)
+Install Debian Jessie - Install Operating System Mirror Country (<a href="../images/new-debian-jessie27-install-os2.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -608,7 +646,7 @@ Then select the mirror archive as below.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Install Operating System Mirror (<a href="../images/new-debian-jessie28-install-os3.png">see full-size image</a>)
+Install Debian Jessie - Install Operating System Mirror (<a href="../images/new-debian-jessie28-install-os3.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -621,7 +659,7 @@ Otherwise, leave blank.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Network Proxy (<a href="../images/new-debian-jessie29-proxy.png">see full-size image</a>)
+Install Debian Jessie - Network Proxy (<a href="../images/new-debian-jessie29-proxy.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -635,7 +673,7 @@ Indicate whether usage statistics should be supplied to Debian developers.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Network Proxy (<a href="../images/new-debian-jessie30-statistics.png">see full-size image</a>)
+Install Debian Jessie - Network Proxy (<a href="../images/new-debian-jessie30-statistics.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -649,20 +687,30 @@ The following are typical selections.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Additional Software (<a href="../images/new-debian-jessie31-software.png">see full-size image</a>)
+Install Debian Jessie - Additional Software (<a href="../images/new-debian-jessie31-software.png">see full-size image</a>)
 </p>**
 
-Press ***Enter*** to continue.
+* ***Debian desktop environment***
+	+ useful for desktop VMs that will be used for software development or other interactive tasks
+	+ not required for pure server environment that will only be accessed through `ssh`
+	+ ***GNOME*** may be used in some systems but does have some issues - install if the deployed system requires it
+	+ ***Xfce*** is a popular desktop environment and is recommended
+* ***SSH Server***
+	+ needed for remote access
+* ***standard system utilities***
+	+ needed for typical Linux operations
+	+ requires editing `/etc/ssh` files to complete setup
 
-Specify the default display manager.  This is used for the initial login screen.
-The default is OK.
+Press ***Enter*** to continue with the software installation.
+
+The default display manager ***gdm3*** is OK.  This is used for the initial login screen.
 
 **<p style="text-align: center;">
 ![new-debian-jessie32-display-manager](images/new-debian-jessie32-display-manager.png)
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Display Manager (<a href="../images/new-debian-jessie32-display-manager.png">see full-size image</a>)
+Install Debian Jessie - Display Manager (<a href="../images/new-debian-jessie32-display-manager.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -675,7 +723,7 @@ The information shows refers to the VM, not the original host operating system.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Boot Loader (<a href="../images/new-debian-jessie33-grub.png">see full-size image</a>)
+Install Debian Jessie - Boot Loader (<a href="../images/new-debian-jessie33-grub.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -688,7 +736,7 @@ Specify the device for the GRUB boot loader as follows.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Boot Loader Device (<a href="../images/new-debian-jessie34-grub-device.png">see full-size image</a>)
+Install Debian Jessie - Boot Loader Device (<a href="../images/new-debian-jessie34-grub-device.png">see full-size image</a>)
 </p>**
 
 Press ***Enter*** to continue.
@@ -700,7 +748,7 @@ The following message indicates that the installion is complete and is ready for
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Installation Complete (<a href="../images/new-debian-jessie35-complete.png">see full-size image</a>)
+Install Debian Jessie - Installation Complete (<a href="../images/new-debian-jessie35-complete.png">see full-size image</a>)
 </p>**
 
 Check the ***Storage*** information in the ***VirtualBox Manager*** to make sure the CD drive is not mounted.
@@ -717,7 +765,7 @@ The following is an example login screen for a VM appliance with `developer` use
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Login Screen (<a href="../images/new-debian-jessie35b-login.png">see full-size image</a>)
+Install Debian Jessie - Login Screen (<a href="../images/new-debian-jessie35b-login.png">see full-size image</a>)
 </p>**
 
 Login as the normal user (not root).  If prompted, ***Use default config*** for the "first start of the panel" as shown below.
@@ -728,7 +776,7 @@ This defines how many virtual desktop panels are used by the window manager.
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Installation Complete (<a href="../images/new-debian-jessie36-panel.png">see full-size image</a>)
+Install Debian Jessie - Installation Complete (<a href="../images/new-debian-jessie36-panel.png">see full-size image</a>)
 </p>**
 
 In order to perform system configuration, the normal user needs to have "sudo" permissions.
@@ -740,7 +788,7 @@ First open a terminal emulator from the ***Applications Menu*** as shown in the 
 </p>**
 
 **<p style="text-align: center;">
-Install Jessie Debian - Open Terminal Winddow (<a href="../images/new-debian-jessie35c-terminal.png">see full-size image</a>)
+Install Debian Jessie - Open Terminal Winddow (<a href="../images/new-debian-jessie35c-terminal.png">see full-size image</a>)
 </p>**
 
 Use the terminal command line to switch user to root.
@@ -773,6 +821,17 @@ Guest additions software allows the guest operating system to integrate with the
 including keyboard, mouse, copy/paste features, improved use of the display, and other device integration.
 A clear sign that guest additions are not installed is if resizing the VM window results in
 no change in size of the desktop, with padding border around the desktop.
+
+There are two philosophies when creating an appliance for use by others:
+
+1. Install as little software as possible, and **no guest additions**
+	* pros: allows use of the VM to configure variations
+	* cons: if guest additions are not installed,
+	effort is required to install later
+2. Install a minimal amount of software, including guest additions
+	* pros: VM can be used more quickly without re-installing the software
+	* cons: if installed software is not as needed,
+	may need to have to recreate the VM, uninstall software, or reinstall software
 
 It is helpful at this point to take a snapshot of the state of the VM in case there is a need to roll back any of the
 following changes.  It is generally best to take a snapshot only when a system is shut down to ensure a static image.
@@ -875,6 +934,15 @@ Install Guest Additions - CD Contents(<a href="../images/new-debian-jessie39-cdr
 
 Right-click on `autorun.sh` and select ***Execute*** (requires sudo user password).
 If ***Execute*** is not shown, it is an indication that the CD is not properly configured in `/etc/fstab` with `exec` property.
+In this case, check the `/etc/fstab` and it may be necessary to restart the VM.
+If the file browser does not allow executing,
+the file permissions on the CD image are actually probably executable
+and the file can be run manually for Linux:
+
+```
+$ sudo ./VboxLinuxAdditions.run`
+```
+
 The output should install software and indicate `VirtualBox Guest Additions:  Starting.` similar to the following.
 The process may take a few minutes.
 
@@ -911,7 +979,10 @@ not being compatible with the guest additions.
 
 ## Install Additional Software ##
 
-It is useful to install additional software:
+It is useful to install additional software, as shown below.
+`vim` is a text editor that is ubiquitous on Linux and can be used
+for system administration tasks.
+`chromium` is a web browser that can be used to find information and download software.
 
 ```
 $ sudo apt-get install vim
@@ -923,3 +994,5 @@ $ sudo apt-get install chromium
 The core VM has now been installed.
 The next steps are to install additional software such as development environment tools.
 The documentation for these activities varies and separate documentation should be consulted.
+For example, the basic VM can be used to export an appliance,
+and the appliance can then be imported to create a VM for software development and testing.
