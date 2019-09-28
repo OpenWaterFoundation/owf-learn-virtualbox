@@ -1,6 +1,6 @@
 # VirtualBox / Clone VM #
 
-The Clone tool makes a copy of a VM.
+The ***Clone*** tool makes a copy of a VM.
 Cloning a VM may be appropriate for the following reasons:
 
 * faster than taking the time to create and initialize a new VM
@@ -105,4 +105,4 @@ A cloned VM will have a configuration that matches the original VM, including ma
 To avoid confusion, the hostname should e changed before continuing with additional changes on the clone.
 To change the hostname on a Debian Jessie VM, see
 
-* [Procedure to Change Hostname on Linux VM](../procedures/procedures.md#procedure-to-change-hostname-on-linux-vm)
+* [Procedure to Change Hostname on Linux VM](../../procedures/procedures.md#procedure-to-change-hostname-on-linux-vm)

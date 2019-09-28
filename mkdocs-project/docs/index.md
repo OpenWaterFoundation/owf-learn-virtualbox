@@ -34,6 +34,9 @@ See also other [OWF learning resources](http://learn.openwaterfoundation.org).
 ## How to Use this Documentation ##
 
 The documentation is organized in order of information and tasks necessary to install, configure, and use VirtualBox.
+The menu on the left lists all pages in the documentation.
+The menu on the right lists section in the current page.
+If the page width has been made narrow, the menus may be indicted by icons with pop-up menus.
 
 This documentation is not intended to be a full reference for VirtualBox but focuses on topics that
 will help understand important technical concepts and be successful with VirtualBox.

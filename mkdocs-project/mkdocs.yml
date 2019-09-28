@@ -24,7 +24,7 @@ nav:
     - 'Shared Folders':  vm-settings/shared-folders/shared-folders.md
 - Virtual Machine Tools:
     - 'Overview': vm-tools/vm-tools.md
-    - 'Cone VM': vm-tools/clone-vm/clone-vm.md
+    - 'Clone VM': vm-tools/clone-vm/clone-vm.md
 - Best Practices: best-practices/best-practices.md
 - Procedures: procedures/procedures.md
 - Troubleshooting: troubleshooting/troubleshooting.md
