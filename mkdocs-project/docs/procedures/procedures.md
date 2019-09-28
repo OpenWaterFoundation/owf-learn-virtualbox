@@ -42,6 +42,10 @@ To change the hostname (tested on Debian Jessie VM):
 		* Change the hostname at the end of the very long line.
 	4. `$ sudo vi /etc/ssh/ssh_host_dsa_key.pub`
 		* Change the hostname at the end of the very long line.
+		* This is used on Debian jessie.
+	5. `$ sudo vi /etc/ssh/ssh_host_ecdsa_key.pub`
+		* Change the hostname at the end of the very long line.
+		* This is used on Debian stretch.
 4. Restart the system:  `$ sudo reboot`
 5. Test that the new settings are in effect:
 	* `$ hostname`

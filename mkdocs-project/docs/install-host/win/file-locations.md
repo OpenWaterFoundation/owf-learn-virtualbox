@@ -28,7 +28,8 @@ These files are located under `C:\Users\user`:
 	The files are portable and can be moved to other locations and other machines.
 * **VirtualBox VMs** - VM files exist in a folder such as `C:\Users\user\VirtualBox VMs` or
 alternate such as `D:\Users\user\VirtualBoxVMs`.  Specific folders and files include:
-	+ Each MV group is represented by a corresponding folder.
+	+ Each MV group is represented by a corresponding folder,
+	for example selected when importing an applicance VM.
 	+ The group `Fresh-OS` is a default that is used for new VMs.
 	+ Each VM in a group is represented by a corresponding folder, which includes the following:
 		- `Logs/` - logs for VM sessions, written by the VirtualBox software

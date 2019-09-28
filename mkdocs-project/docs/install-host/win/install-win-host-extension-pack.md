@@ -1,7 +1,12 @@
 # Virtural Box / Windows 10 Host / Install Extension Pack
 
 The Windows 10 host extension pack contains additional software to optimize integration
-with host hardware such as USB.  It is generally a good idea to install the extension pack.
+with host hardware such as USB.
+
+**Note that the extension pack is free for evaluation and personal use but is not free for commercial use.**
+The extension pack is generally not needed unless devices such as USB are used with the VM.
+In many cases such devices can be used on the host operating system, for example using shared folders.
+
 The following are installation instructions.
 
 * [Manually Install Extension Pack](#manually-install-extension-pack)

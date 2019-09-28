@@ -10,11 +10,11 @@ This page provides best practices when using VirtualBox.
 ## Organize VMs in Groups ##
 
 It can be confusing to keep track of VMs, even if detailed machine names are used.
-The VMs can organized in groups to help avoid confusion, using the Group feature.
+The VMs can organized in groups to help avoid confusion, using the ***Group*** feature.
 The default group is `Fresh-OS`, which will be used by default.
 Examples of groups:
 
-* `Appliances` - (machines meant to be imported as starting point for additional configuration)
+* `Appliances` - (machines meant to be imported as starting point for other VMs)
 * `Develop (project)` - machines used for product development
 * `Ops (name)` - machines used in operations
 
