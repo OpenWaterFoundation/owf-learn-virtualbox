@@ -10,10 +10,11 @@ each of which will install specific software into the VMs created from the appli
 To import a VM appliance, first download or otherwise copy the VM appliance file (`ova`)
 onto the host operating system computer.
 
-Start the ***VirtualBox Manager*** software and select the ***Tools*** at the top of the window.
-Start the import process by selecting the ***Import*** tool.
+Start the ***VirtualBox Manager*** software and select the ***File / Import Appliance*** menu
+(or, select ***Tools*** at the top of the window and then the ***Import*** tool).
 Use the file selector to pick an `ova` file, for example as shown below.
-**Need to update the image to use longer name.**
+Note that the `C:\Users\sam\Documents` folder is the default location where an appliance
+is exported by the ***VirtualBox Manager***.
 
 **<p style="text-align: center;">
 ![import-debian-jessie1](images/import-debian-jessie1.png)
@@ -50,6 +51,7 @@ more specific `vb-user-j64-20d-prod-dev1`, where `prod` indicates the product an
 The default location for VMs will match the value that was previously set for VirtualBox.
 
 * ***Primary Group*** - select an appropriate group from choices, which are taken from the main ***VirtualBox Manager*** groups.
+An existing or new group can be specified, with leading `/`.
 
 **<p style="text-align: center;">
 ![import-debian-jessie3](images/import-debian-jessie3.png)
