@@ -34,11 +34,11 @@ Then use the ***Add (plus)*** button on the right to add a shared folder.
 For example, the following mounts a guest operating system folder `/media/vbshare`
 matching the `C:\vbshare` host operating system folder, with the following settings:
 
-* ***Folder Path*** - the host (Windows 10) operating system folder to share
+* ***Folder Path*** - the host (Windows 10) operating system folder to share (must exist, otherwise ***OK*** button will be disabled)
 * ***Folder Name*** - repeat the folder name from above, which will be used to display the folder name in the guest operating system
 * ***Read-only*** - typically do not want this to be set because want to allow files to be written from either direction
 * ***Auto-mount*** - typically want to select because want the shared folder to be configured automatically when the guest operating system starts
-* ***Mount point*** - the guest operating system folder where the shared folder will mount
+* ***Mount point*** - the guest operating system folder where the shared folder will mount (will be created if it does not exist)
 * ***Make Permanent*** - if selected, the shared folder is a ***Machine Folder*** and will be mounted when the VM restarts
 (otherwise will be listed in ***Transient Folders***)
 

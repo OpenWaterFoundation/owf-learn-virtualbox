@@ -966,6 +966,12 @@ Login again as the normal user.
 
 Check that guest additions have been installed:  `ls /opt`.
 There should be a folder named `/opt/VBoxGuestAdditions-6.0.4` or similar.
+Alternatively, check as follows:
+
+```
+$ lsmod | grep vboxguest
+vboxguest             327680  5 vboxsf
+```
 
 Verify that guest additions are working:
 

@@ -25,6 +25,7 @@ nav:
 - Virtual Machine Tools:
     - 'Overview': vm-tools/vm-tools.md
     - 'Clone VM': vm-tools/clone-vm/clone-vm.md
+- Snapshots: 'snapshots/snapshots.md'
 - Best Practices: best-practices/best-practices.md
 - Procedures: procedures/procedures.md
 - Troubleshooting: troubleshooting/troubleshooting.md
