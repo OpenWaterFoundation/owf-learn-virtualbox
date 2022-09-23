@@ -50,7 +50,7 @@ Then use the ***Restore*** tool, or right-click on the snapshot to restore and
 select the ***Restore...*** menu item, as shown below.
 
 **<p style="text-align: center;">
-![retore-snapshot1](images/restore-snapshot1.png)
+![restore-snapshot1](images/restore-snapshot1.png)
 </p>**
 
 **<p style="text-align: center;">
@@ -68,7 +68,7 @@ Press ***Restore*** to restore the snapshot to replace the previous VM state.
 Any work done after the snapshot will need to be redone.
 
 **<p style="text-align: center;">
-![retore-snapshot2](images/restore-snapshot2.png)
+![restore-snapshot2](images/restore-snapshot2.png)
 </p>**
 
 **<p style="text-align: center;">
