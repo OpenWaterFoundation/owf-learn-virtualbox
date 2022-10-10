@@ -16,20 +16,20 @@ This documentation explains how to:
 A similar process can be used with other combinations of operating systems.
 Once a VM is available, specific software can be installed and configured for a specific purpose.
 
-If a full VM is not needed, consider using [Cygwin](http://learn.openwaterfoundation.org/owf-learn-cygwin/),
+If a full VM is not needed, consider using [Cygwin](https://learn.openwaterfoundation.org/owf-learn-cygwin/),
 Git Bash, MinGW, or Linux Subsystem on Windows 10
-([see information about Linux shells](http://learn.openwaterfoundation.org/owf-learn-linux-shell/install/install/)).
+([see information about Linux shells](https://learn.openwaterfoundation.org/owf-learn-linux-shell/install/install/)).
 
 This documentation has been written based on experience using VirtualBox at the Open Water Foundation.
 
 ## About the Open Water Foundation ##
 
-The [Open Water Foundation](http://openwaterfoundation.org) is a nonprofit social enterprise that focuses
+The [Open Water Foundation](https://openwaterfoundation.org) is a nonprofit social enterprise that focuses
 on developing and supporting open source software for water resources, so that organizations can make better decisions about water.
 OWF also works to advance open data tools and implementation.
 OWF has created this documentation to educate its staff, collaborators, and clients that use VirtualBox.
 
-See also other [OWF learning resources](http://learn.openwaterfoundation.org).
+See also other [OWF learning resources](https://learn.openwaterfoundation.org).
 
 ## How to Use this Documentation ##
 
