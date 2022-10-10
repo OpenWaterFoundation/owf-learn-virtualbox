@@ -1,9 +1,9 @@
 # owf-learn-virtualbox #
 
-This repository contains the [Open Water Foundation (OWF)](http://openwaterfoundation.org/) VirtualBox training materials,
+This repository contains the [Open Water Foundation (OWF)](https://openwaterfoundation.org/) VirtualBox training materials,
 which provides guidance for implementing VirtualBox virtual machines.
 
-See the deployed [OWF / Learn VirtualBox](http://learn.openwaterfoundation.org/owf-learn-virtualbox/) documentation.
+See the deployed [OWF / Learn VirtualBox](https://learn.openwaterfoundation.org/owf-learn-virtualbox/) documentation.
 
 ## Repository Contents ##
 
@@ -26,7 +26,7 @@ mkdocs-project/       Typical MkDocs project for this documentation.
 
 The development environment for contributing to this project requires installation of Python, MkDocs, and Material MkDocs theme.
 Python 3 and MkDocs 1+ has been used for development.
-See the [OWF Learn MkDocs](http://learn.openwaterfoundation.org/owf-learn-mkdocs/) documentation
+See the [OWF Learn MkDocs](https://learn.openwaterfoundation.org/owf-learn-mkdocs/) documentation
 for information about installing these tools.
 
 ## Editing and Viewing Content ##
@@ -40,7 +40,7 @@ If the development environment is properly configured, edit and view content as 
 ## License ##
 
 The OWF Learn VirtualBox website content and examples are licensed under the
-[Creative Commons Attribution 4.0 International (CC BY 4.0) License](https://creativecommons.org/licenses/by-nc-sa/4.0).
+[Creative Commons Attribution 4.0 International (CC BY 4.0) License](httpss://creativecommons.org/licenses/by-nc-sa/4.0).
 
 ## Contributing ##
 
