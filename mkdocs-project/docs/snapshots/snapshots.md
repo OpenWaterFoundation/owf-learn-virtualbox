@@ -1,12 +1,14 @@
 # VirtualBox / Snapshots #
 
-* [Overview](#overview)
-* [Saving a Snapshot](#saving-a-snapshot)
-* [Restoring a Snapshot](#restoring-a-snapshot)
+*   [Overview](#overview)
+*   [Saving a Snapshot](#saving-a-snapshot)
+*   [Restoring a Snapshot](#restoring-a-snapshot)
 
 ------------------
 
 ## Overview ##
+
+This documentation was created using VirtualBox 6.0.4 but other versions should be similar.
 
 A VM snapshot is a saved representation of the VM state,
 which allows the VM to be restored to that state.
@@ -21,7 +23,7 @@ Then click on the menu on the right side of the VM name in ***VirtualBox Manager
 select ***Snapshots***.
 
 **<p style="text-align: center;">
-![save-snapshot1](images/save-snapshot1.png)
+![Save snapshot](images/save-snapshot1.png)
 </p>**
 
 **<p style="text-align: center;">
@@ -31,7 +33,7 @@ Save (Take) a Snapshot (<a href="../images/save-snapshot1.png">see full-size ima
 Next, provide a snapshort name and description, similar to the following.
 
 **<p style="text-align: center;">
-![save-snapshot2](images/save-snapshot2.png)
+![Snapshot information](images/save-snapshot2.png)
 </p>**
 
 **<p style="text-align: center;">
@@ -50,7 +52,7 @@ Then use the ***Restore*** tool, or right-click on the snapshot to restore and
 select the ***Restore...*** menu item, as shown below.
 
 **<p style="text-align: center;">
-![restore-snapshot1](images/restore-snapshot1.png)
+![Restore snapshot](images/restore-snapshot1.png)
 </p>**
 
 **<p style="text-align: center;">
@@ -62,13 +64,14 @@ creating a snapshot of the current machine state.
 If the current state is important, save a snapshot.
 Otherwise, unclick the ***Create a snapshot of the current machine state*** choice,
 as shown in the following example.
-It is also important to commit work to Git or other repository and push to the cloud
+If the VM is a development machine,
+it is also important to commit work to Git or other repository and push to the cloud
 so that current files are saved.
 Press ***Restore*** to restore the snapshot to replace the previous VM state.
 Any work done after the snapshot will need to be redone.
 
 **<p style="text-align: center;">
-![restore-snapshot2](images/restore-snapshot2.png)
+![Restore snapshot confirmation](images/restore-snapshot2.png)
 </p>**
 
 **<p style="text-align: center;">

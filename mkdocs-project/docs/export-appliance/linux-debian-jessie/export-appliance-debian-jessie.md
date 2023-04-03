@@ -1,14 +1,17 @@
-# VirtualBox / Windows 10 Host / Export Linux Debian Jessie VM Appliance #
+# VirtualBox / Windows Host / Export Linux Debian Jessie VM Appliance #
+
+This documentation was created for Windows 10 and VirtualBox 6.0.4
+but should be similar for Windows 11 and newer versions of VitualBox.
 
 Once a VM has been created, it can be exported as an "appliance", which is a self-contained
 VM file that can be imported into VirtualBox running on another computer.
 This is useful when a standard environment needs to be used on multiple computers,
 for example:
 
-* software development VM - will install software necessary for development,
-such as compilers and integrated development environments
-* software build/testing VM - may build software and test in multiple configurations
-* operational system VM - production system for operations
+*   software development VM - will install software necessary for development,
+    such as compilers and integrated development environments
+*   software build/testing VM - may build software and test in multiple configurations
+*   operational system VM - production system for operations
 
 To export a Linux Debian Jessie appliance, first make sure that the VM is stopped.
 Then select the ***VirtualBox Manager / Tools***.
@@ -22,7 +25,7 @@ which indicates VirtualBox appliance for a specific organization, Debian Jessie 
 and "bare" indicates bare system with minimal software.
 
 **<p style="text-align: center;">
-![export-debian-jessie1](images/export-debian-jessie1.png)
+![Export Debian Jessie virtual machine](images/export-debian-jessie1.png)
 </p>**
 
 **<p style="text-align: center;">
@@ -42,7 +45,7 @@ The file extension will be consistent with the format.
 Using the default `ova` extension results in a single file for the appliance, which simplifies moving the appliance.
 
 **<p style="text-align: center;">
-![export-debian-jessie2](images/export-debian-jessie2.png)
+![Virtual machine details](images/export-debian-jessie2.png)
 </p>**
 
 **<p style="text-align: center;">
@@ -54,7 +57,7 @@ The initial defaults will be similar to the following, where the name matches th
 **Need to update the image to use the above name.**
 
 **<p style="text-align: center;">
-![export-debian-jessie3](images/export-debian-jessie3.png)
+![Virtual system settings](images/export-debian-jessie3.png)
 </p>**
 
 **<p style="text-align: center;">
@@ -72,7 +75,7 @@ Information for the product can also be specified, as shown in the following exa
 **Need to update the image to use the above name.**
 
 **<p style="text-align: center;">
-![export-debian-jessie4](images/export-debian-jessie4.png)
+![Virtual system specific settings](images/export-debian-jessie4.png)
 </p>**
 
 **<p style="text-align: center;">
@@ -82,7 +85,7 @@ Export Debian Jessie Virtual Machine - Virtual System Settings (Specific) (<a hr
 Press ***Export*** to export the appliance.  A progress bar will be shown.  The export will take a few minutes.
 
 **<p style="text-align: center;">
-![export-debian-jessie5-progress](images/export-debian-jessie5-progress.png)
+![Export virtual machine progress](images/export-debian-jessie5-progress.png)
 </p>**
 
 **<p style="text-align: center;">
@@ -92,7 +95,7 @@ Export Debian Jessie Virtual Machine - Progress (<a href="../images/export-debia
 The following illustrates the output file. **Need to update the image to use the longer VM name.**
 
 **<p style="text-align: center;">
-![export-debian-jessie6-file](images/export-debian-jessie6-file.png)
+![Export output file](images/export-debian-jessie6-file.png)
 </p>**
 
 **<p style="text-align: center;">
