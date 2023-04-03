@@ -5,31 +5,37 @@
 site_name: Learn / VirtualBox
 nav:
 - Home: index.md
-#- Overview: overview.md
-- Install VirtualBox:
-  - Windows 10 Host:
+- 'Introduction': introduction/introduction.md
+- 'Install VirtualBox':
+  - 'Overview':  install-host/overview.md
+  - 'Windows Host':
     - 'Main Install': install-host/win/install-win-host.md
     - 'Extension Pack': install-host/win/install-win-host-extension-pack.md
     - 'File Locations': install-host/win/file-locations.md
-- 'Create Guests on Windows 10':
-    - 'Linux Debian Jessie VM':  create-guest/linux-debian-jessie/create-guest-debian-jessie.md
-- 'Export Appliance on Windows 10':
-    - 'Linux Debian Jessie VM':  export-appliance/linux-debian-jessie/export-appliance-debian-jessie.md
-- 'Import Appliance on Windows 10':
-    - 'Linux Debian Jessie VM':  import-appliance/linux-debian-jessie/import-appliance-debian-jessie.md
-- Virtual Machine Configuration:
-    - 'Linux Debian VM':  vm-config/linux-debian/config-debian.md
-- Virtual Machine Settings:
-    - 'Overview': vm-settings/vm-settings.md
+- 'Create Guest VM':
+    - 'Overview': create-guest/overview.md
+    - 'Windows + Linux Debian Jessie':  create-guest/linux-debian-jessie/create-guest-debian-jessie.md
+- 'Export Appliance':
+    - 'Overview': export-appliance/overview.md
+    - 'Windows + Linux Debian Jessie':  export-appliance/linux-debian-jessie/export-appliance-debian-jessie.md
+- 'Import Appliance':
+    - 'Overview': import-appliance/overview.md
+    - 'Windows + Linux Debian Bullseye':  import-appliance/linux-debian-bullseye/import-appliance-debian-bullseye.md
+    - 'Windows + Linux Debian Jessie':  import-appliance/linux-debian-jessie/import-appliance-debian-jessie.md
+- 'VM Configuration':
+    - 'Overview': vm-config/overview.md
+    - 'Linux Debian':  vm-config/linux-debian/config-debian.md
+- 'VM Settings':
+    - 'Overview': vm-settings/overview.md
     - 'Shared Folders':  vm-settings/shared-folders/shared-folders.md
-- Virtual Machine Tools:
-    - 'Overview': vm-tools/vm-tools.md
+- 'VM Tools':
+    - 'Overview': vm-tools/overview.md
     - 'Clone VM': vm-tools/clone-vm/clone-vm.md
-- Snapshots: 'snapshots/snapshots.md'
-- Best Practices: best-practices/best-practices.md
-- Procedures: procedures/procedures.md
-- Troubleshooting: troubleshooting/troubleshooting.md
-- Resources: resources/resources.md
+- 'Snapshots': 'snapshots/snapshots.md'
+- 'Best Practices': best-practices/best-practices.md
+- 'Procedures': procedures/procedures.md
+- 'Troubleshooting': troubleshooting/troubleshooting.md
+- 'Resources': resources/resources.md
 # ------- configuration properties ---------------
 # Alphabetize
 # ------------------------------------------------

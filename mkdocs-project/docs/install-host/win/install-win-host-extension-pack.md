@@ -9,9 +9,9 @@ In many cases such devices can be used on the host operating system, for example
 
 The following are installation instructions.
 
-* [Manually Install Extension Pack](#manually-install-extension-pack)
-* [Update Existing Extension Pack Installation](#update-existing-extension-pack-installation) - typically
-will be prompted for this case when main VirtualBox software is installed
+*   [Manually Install Extension Pack](#manually-install-extension-pack)
+*   [Update Existing Extension Pack Installation](#update-existing-extension-pack-installation) - typically
+    will be prompted for this case when main VirtualBox software is installed
 
 ------------------
 

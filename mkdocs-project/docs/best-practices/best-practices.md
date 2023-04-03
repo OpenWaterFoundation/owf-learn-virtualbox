@@ -2,10 +2,10 @@
 
 This page provides best practices when using VirtualBox.
 
-* [Use Snapshots](#use-snapshots)
-* [Organize VMs in Groups](#organize-vMs-in-groups)
-* [Shutting Down Machines](#shutting-down-machines)
-* [Use Shared Folders to Transfer Files](#use-shared-folders-to-transfer-files)
+*   [Use Snapshots](#use-snapshots)
+*   [Organize VMs in Groups](#organize-vMs-in-groups)
+*   [Shutting Down Machines](#shutting-down-machines)
+*   [Use Shared Folders to Transfer Files](#use-shared-folders-to-transfer-files)
 
 ---------------------
 
@@ -23,9 +23,9 @@ The VMs can organized in groups to help avoid confusion, using the ***Group*** f
 The default group is `Fresh-OS`, which will be used by default.
 Examples of groups:
 
-* `Appliances` - (machines meant to be imported as starting point for other VMs)
-* `Develop (project)` - machines used for product development
-* `Ops (name)` - machines used in operations
+*   `Appliances` - (machines meant to be imported as starting point for other VMs)
+*   `Develop (project)` - machines used for product development
+*   `Ops (name)` - machines used in operations
 
 To add a new group, right click on a VM and use the ***Group*** menu in the ***VirtualBox Manager***.
 A default group with label ***New group*** will be added.
