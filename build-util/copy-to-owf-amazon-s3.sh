@@ -175,6 +175,7 @@ logWarning() {
 }
 
 #### End logging functions.   ####
+
 # Set the AWS executable:
 # - handle different operating systems
 # - for AWS CLI V2, can call an executable
