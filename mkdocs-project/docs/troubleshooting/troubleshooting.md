@@ -4,8 +4,18 @@ The following are useful resources for troubleshooting.
 
 *   [Debian Linux Guest](#debian-linux-guest)
     +   [Debian Linux: General](#debian-linux-general)
+        -   [Issue: Mouse does not move beyond the VM window boundary](#issue-mouse-does-not-move-beyond-the-vm-window-boundary)
+        -   [Issue: For Debian guest VMs, the display shows black after some period of time and does not respond to mouse or keyboard input](#issue-for-debian-guest-vms-the-display-shows-black-after-some-period-of-time-and-does-not-respond-to-mouse-or-keyboard-input)
+        -   [Issue: The VM becomes unresponsive to keyboard input](#issue-the-vm-becomes-unresponsive-to-keyboard-input)
+        -   [Issue: For Debian guest VM, increasing the window size results in a black screen](#issue-for-debian-guest-vm-increasing-the-window-size-results-in-a-black-screen)
+        -   [Issue: Unable to copy and paste between the guest VM and other computers](#issue-unable-to-copy-and-paste-between-the-guest-vm-and-other-computers)
     +   [Debian Linux: Installation](#debian-linux-installation)
+        -   [Issue: Installing the Extension Pack shows error `Cannot install extension pack` (Windows 10)](#issue-installing-the-extension-pack-shows-error-cannot-install-extension-pack-windows-10)
+        -   [Issue: While installing the operating system software, an error is shown about not being able access repository (see image below)](#issue-while-installing-the-operating-system-software-an-error-is-shown-about-not-being-able-access-repository)
+        -   [Issue: After installing guest additions, screen is black after startup](#issue-after-installing-guest-additions-screen-is-black-after-startup)
     +   [Debian Linux: Network](#debian-linux-network)
+        -   [Issue: Running the VM appliance says could not start the machine because a physical network device is missing](#issue-running-the-vm-appliance-says-could-not-start-the-machine-because-a-physical-network-device-is-missing)
+        -   [Issue: Error communicating on the network](#issue-error-communicating-on-the-network)
 
 ---
 
@@ -15,16 +25,16 @@ The following troubleshooting issues have occurred on a Debian Linux guest.
 
 ### Debian Linux: General ###
 
-**Issue: Mouse does not move beyond the VM window boundary**
+#### Issue: Mouse does not move beyond the VM window boundary ####
 
 *   **Possible Solution**:
     +   The mouse is captured by the guest VM.  Use the ***Right-ctrl*** key to toggle this behavior.
         Fix by installing and configuring guest additions.
 
-**Issue:  For Debian guest VMs, the display shows black after some period of time and does not respond to mouse or keyboard input**
+#### Issue:  For Debian guest VMs, the display shows black after some period of time and does not respond to mouse or keyboard input ####
 
 *   **Symptoms**:
-    +   Entire Linux desktop displays in black and is nonresponsive to keyboard or mouse input.
+    +   Entire Linux desktop displays in black and is unresponsive to keyboard or mouse input.
     +   VirtualBox menus in menu bar for the VM are functional.
     +   Can `ssh` into the VM.
 +   **Possible Solution**:
@@ -33,11 +43,11 @@ The following troubleshooting issues have occurred on a Debian Linux guest.
         This is used to wake up the virtual desktop.
     +   Installing a screen saver might help, for example `xscreensaver`.
 
-**Issue:  The VM becomes nonresponsive to keyboard input**
+#### Issue: The VM becomes unresponsive to keyboard input ####
 
 *   **Symptoms**:
     +   Has been seen on Debian Jessie.
-    +   The keyboard becomes nonresponsive.
+    +   The keyboard becomes unresponsive.
     +   In a terminal window it is necessary to hold down a key for a period of time in order for the character to appear.
     +   The issue is specific to a single VM - other VMs behave as usual.
 +   **Information**:
@@ -57,16 +67,40 @@ The following troubleshooting issues have occurred on a Debian Linux guest.
         This seems to assign the keyboard to the VM and it won't be recognized by other VMs.
     +   Reboot the VM.
 
+#### Issue: For Debian guest VM, increasing the window size results in a black screen ####
+
+*   **Symptoms**:
+    +   Resizing the VM window results in a black window.
+    +   The behavior may occur when scroll bars are shown.
++   **Possible Solution**:
+    +   Increase the VM's video memory (e.g., to 128 MB) and turn on ***Enable 3D Accelertion*** as shown below.
+
+**<p style="text-align: center;">
+![Video memory](images/display-video-memory.png)
+</p>**
+
+**<p style="text-align: center;">
+Set the Video Display Memory (<a href="../images/display-video-memory.png">see full-size image</a>)
+</p>**
+
+#### Issue: Unable to copy and paste between the guest VM and other computers ####
+
+*   **Symptoms**:
+    +   Copy and paste between guest VM and host or other VMs does not work
++   **Possible Solution**:
+    +   Make sure that guest additions are installed.
+    +   Set the VM ***Devices / Shared Clipboard*** to ***Bidirectional***.
+
 ### Debian Linux: Installation ###
 
-**Issue: Installing the Extension Pack shows error `Cannot install extension pack` (Windows 10)**
+#### Issue: Installing the Extension Pack shows error `Cannot install extension pack` (Windows 10) ####
 
 *   **Background**:  Installing the extension pack is not usually needed and is only free for personal and evaluation use.
 *   **Possible Solution**: This may be because the attempt to install the extension pack did not use an
     account with administrator priveleges.
     Try installing by running the installer from a command prompt window that is run as administrator.
 
-**Issue:  While installing the operating system software, an error is shown about not being able access repository (see image below)**
+#### Issue:  While installing the operating system software, an error is shown about not being able access repository ####
 
 **<p style="text-align: center;">
 ![Debian download error](images/error-debian-site.png)
@@ -85,7 +119,7 @@ Debian Download Error (<a href="../images/error-debian-site.png">see full-size i
         This requires changing the `apt` `sources.list` file so that software is retrieved from the appropriate server.
         For example, for Debian, older versions such as jessie must use archive mirror.
 
-**Issue: After installing guest additions, screen is black after startup**
+#### Issue: After installing guest additions, screen is black after startup ####
 
 *   **Possible Solution**:
     +   If using Debian Jessie and Virtual Box 6, try using the ***Display / Graphics Controller*** setting
@@ -94,8 +128,7 @@ Debian Download Error (<a href="../images/error-debian-site.png">see full-size i
 
 ### Debian Linux: Network ###
 
-**Issue:  Running the VM appliance says
-could not start the machine because a physical network device is missing.**
+#### Issue: Running the VM appliance says could not start the machine because a physical network device is missing ####
 
 **<p style="text-align: center;">
 ![Debian missing network interface error](images/error-debian-missing-network-interface-1.png)
@@ -111,7 +144,7 @@ could not start the machine because a physical network device is missing.**
     ![Debian network configuration](images/error-debian-missing-network-interface-2.png)
     </p>**
 
-**Issue:  Error communicating on the network**
+#### Issue:  Error communicating on the network ####
 
 The VM may exhibit issues such as not being able to download software using `apt`.
 The VM may show other than the normal network address such as `127.0.0.1`.
